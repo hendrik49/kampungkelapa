@@ -235,8 +235,7 @@
       barChart.Bar(barChartData, barChartOptions);
       }
      });    
-  
-  $.ajax({
+$.ajax({
       url: "{{ url('/getDonutCommodity') }}",
       method: "GET",
       success: function(data) {
@@ -245,7 +244,7 @@
       for (var i = 0; i < data.data.length; i++) {
         donutData.push({
             data: data.data[i].count,
-            color: "#f56956",
+            color: "#f56954",
             label: data.data[i].name
       });
       }
