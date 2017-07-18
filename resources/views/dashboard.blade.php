@@ -105,6 +105,7 @@
 
       </div>
       </div>
+      <!--
       <div class="row">
         <div class="col-md-6">
             <div class="box box-primary">
@@ -122,7 +123,6 @@
               <div class="box-body">
                 <canvas id="donut-perjenis" style="height: 300px;"></div>
               </div>
-              <!-- /.box-body-->
             </div>
           <div class="col-md-6">
             <div class="box box-primary">
@@ -140,8 +140,8 @@
               <div class="box-body">
                 <div id="donut-setahun" style="height: 300px;"></div>
               </div>
-              <!-- /.box-body-->
             </div>
+            -->
         </div>      
       </div>
         <!-- /.col -->
