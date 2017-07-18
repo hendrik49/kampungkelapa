@@ -1,0 +1,10 @@
+vendor/*
+.env
+nbproject/
+
+/XlsxEncrypt/build/
+/XlsxEncrypt/dist/
+/XlsxEncrypt/nbproject/
+/XlsxEncrypt/poi-3.15/
+/XlsxEncrypt/build.xml
+/XlsxEncrypt/manifest.mf
