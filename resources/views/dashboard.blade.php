@@ -95,7 +95,7 @@
               </div>
               <div class="box-body">
                 <div class="chart">
-                  <div canvas="donut-setahun-nilai" style="min-height:300px"></canvas>
+                  <div canvas="bar-ppl" style="min-height:300px"></canvas>
                 </div>
               </div>
               <!-- /.box-body-->

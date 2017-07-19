@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get("/getProduktifYesNo", "DashboardController@getProduktifYesNo");
     Route::get("/getProduktifJenis", "DashboardController@getProduktifJenis");
     Route::get("/getDonutCommodity", "DashboardController@getDonutCommodity");
-    Route::get("/getDonutSetahunPaket", "DashboardController@getDonutSetahunPaket");
+    Route::get("/getKinerjaPPL", "DashboardController@getKinerjaPPL");
     Route::get("/getDonutSetahunNilai", "DashboardController@getDonutSetahunPaket");
     Route::get("/getRealisasiPerjenis", "DashboardController@getRealisasiPerjenis");
 

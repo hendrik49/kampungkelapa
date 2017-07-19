@@ -56,10 +56,10 @@ class DashboardController extends Controller
     }
 
     
-     public function getRealisasiPerjenis()
+     public function getKinerjaPPL()
     {
         $user = Auth::user(); 
-        $data = DB::table('view_pie_commodity')->select('*')->get();
+        $data = DB::table('view_persentase_location')->select('*')->get();
         return  compact('data');
     }
 

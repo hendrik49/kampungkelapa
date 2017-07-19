@@ -708,44 +708,34 @@ $.ajax({
     });
       }
    });
-    var bar2ChartCanvas = $("#donut-perjenis").get(0).getContext("2d");
+   */
+    var bar2ChartCanvas = $("#bar-ppl").get(0).getContext("2d");
     var bar2Chart = new Chart(bar2ChartCanvas);
      $.ajax({
-      url: "{{ url('/getRealisasiPerjenis') }}",
+      url: "{{ url('/getKinerjaPPL') }}",
       method: "GET",
       success: function(data) {
       console.log(data);
-      var triwulan = ["Modal","Barang","Lainnya"];
-      var rencana = [];
-      var realisasi = [];
-      rencana.push(data.data.r_modal);
-      realisasi .push(data.data.modal);
-      rencana.push(data.data.r_barang);
-      realisasi .push(data.data.barang);
-      rencana.push(data.data.r_lainnya);
-      realisasi .push(data.data.lainnya);
+      
+      var name = [];
+      var presentase = [];
+      for (var i = 0; i < data.data.length; i++) {
+        name.push(data.data[i].district_loc);
+        persentase.push(data.data[i].nonproduktif);
+        triwulan.push(data.data[i].name);
+      }
       var bar2ChartData = {
-        labels: triwulan,
+        labels: name,
         datasets: [
           {
-            label: "Rencana Rp",
+            label: "Persentase",
             fillColor: "rgba(110, 214, 222, 1)",
             strokeColor: "rgba(110, 214, 222, 1)",
             pointColor: "rgba(110, 214, 222, 1)",
             pointStrokeColor: "#c1c7d1",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rencana
-          },
-          {
-            label: "Realisasi Rp",
-            fillColor: "rgba(110, 014, 222, 1)",
-            strokeColor: "rgba(110, 014, 222, 1)",
-            pointColor: "rgba(110, 014, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: realisasi
+            data: persentase
           }
         ]
       };
