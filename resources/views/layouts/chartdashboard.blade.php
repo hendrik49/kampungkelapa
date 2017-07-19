@@ -428,7 +428,6 @@ $.ajax({
     pieChartSetahun.Doughnut(PieDataSetahun, pieOptionsSetahun);
     }
  });
-*/
 $.ajax({
       url: "{{ url('/getDonutSetahunPaket') }}",
       method: "GET",
@@ -709,7 +708,6 @@ $.ajax({
     });
       }
    });
-*/
     var bar2ChartCanvas = $("#donut-perjenis").get(0).getContext("2d");
     var bar2Chart = new Chart(bar2ChartCanvas);
      $.ajax({
