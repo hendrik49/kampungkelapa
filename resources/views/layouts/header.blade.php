@@ -72,12 +72,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-          <a href="{{ url('/') }}" class="logo">
+      <div class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b> Kampung </b> Kelapa</span>
-    </a>
+    </div>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">

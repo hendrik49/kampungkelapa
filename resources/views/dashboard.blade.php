@@ -3,17 +3,18 @@
 @include('layouts.header')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- 
     <section class="content-header">
       <h1>
         Dasbor
-        <small>Panel kendali (Tahun {{ date('Y')}})</small>
+        <small>(Tahun {{ date('Y')}})</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li class="active">Dasbor</li>
       </ol>
     </section>
+    Content Header (Page header) -->
       <!-- Main content -->
     <section class="content">                
       <div class="row">
