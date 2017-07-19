@@ -4,7 +4,7 @@
     <div class="pull-right hidden-xs">
       <b>Versi</b> 2.3.6
     </div>
-    <strong>Hak Cipta &copy; 2014-2016 <a href="http://almsaeedstudio.com">PT Primus Indonesia</a>.</strong> Dilindungi Undang-Undang.
+    <strong>Hak Cipta &copy; 2017 <a href="www.kampungkelapa.com">Kampung Kelapa</a>.</strong> Dilindungi Undang-Undang.
   </footer>
   <div class="control-sidebar-bg"></div>
 </div>

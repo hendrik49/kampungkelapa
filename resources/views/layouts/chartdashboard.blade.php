@@ -721,8 +721,7 @@ $.ajax({
       var presentase = [];
       for (var i = 0; i < data.data.length; i++) {
         name.push(data.data[i].district_loc);
-        persentase.push(data.data[i].nonproduktif);
-        triwulan.push(data.data[i].name);
+        presentase.push(data.data[i].persentase_loc);
       }
       var bar2ChartData = {
         labels: name,
@@ -735,7 +734,7 @@ $.ajax({
             pointStrokeColor: "#c1c7d1",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: persentase
+            data: presentase
           }
         ]
       };
