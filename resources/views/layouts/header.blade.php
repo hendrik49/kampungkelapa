@@ -38,16 +38,13 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/dataTables.bootstrap.css') }}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/jquery.dataTables.min.css') }}">
-
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/jquery.dataTables_themeroller.css') }}">
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  
   <style type="text/css">
       .table>thead>tr>th {
           vertical-align: middle;
@@ -56,23 +53,18 @@
       .dataTables_filter {
           text-align: right;
       }
-
   </style>
-  
 </head>
-<body class="hold-transition skin-red-light sidebar-mini">
+<body class="hold-transition sidebar-collapse skin-red-light sidebar-mini">
 <div class="wrapper">
-
-  <header class="main-header" style="background-color:green;">
-    <!-- Logo -->
+  <header class="main-header">
+    <!-- Logo
     <a href="{{ url('/') }}" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
-      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b> Kampung </b> Kelapa</span>
     </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top navbarbg" style="background-color:green;">
+    -->
+    <nav class="navbar navbar-static-top navbarbg">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -80,17 +72,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-
+          <a href="{{ url('/') }}" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b> Kampung </b> Kelapa</span>
+    </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset('assets/dist/img/avatar5.png') }}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- User image -->
               <li class="user-header">
                 <img src="{{ asset('assets/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
                 <p>
@@ -98,7 +93,6 @@
                   <small>Anggota sejak {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
-              <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
                   <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Keluar</a>
@@ -106,17 +100,15 @@
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
-
         </ul>
       </div>
     </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
+    <!--
+
     <section class="sidebar">
-      <!-- Sidebar user panel -->
+      <!Sidebar user panel -->
       <!-- 
       <div class="user-panel">
         <div class="pull-left image">
@@ -135,9 +127,6 @@
               </span>
         </div>
       </form>
-      -->
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">NAVIGASI UTAMA</li>
         <li class="treeview">
@@ -145,7 +134,6 @@
             <i class="fa fa-dashboard"></i> <span>Dasbor</span>
           </a>
         </li>
-        <!--
         @if(Auth::user()->role=="M")
         <li class="treeview">
           <a href="{{ route('unit_kerja.index') }}">
@@ -186,7 +174,6 @@
             <li><a href="{{ url('/status_pengisian') }}"><i class="fa fa-fw"></i>Status Pengisian</a></li>
           </ul>
         </li>
-        
         @if(Auth::user()->role=="M")
         <li class="treeview @if(Request::is('report_*'))
                                 active 
@@ -203,8 +190,7 @@
           </ul>
         </li>        
         @endif        
-        -->
       </ul>
     </section>
-    <!-- /.sidebar -->
+  -->
   </aside>

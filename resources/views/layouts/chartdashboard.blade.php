@@ -29,23 +29,24 @@
         datasets: [
           {
             label: "Produktif",
-            fillColor: "rgba(110, 214, 222, 1)",
-            strokeColor: "rgba(110, 214, 222, 1)",
-            pointColor: "rgba(110, 214, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
+            fillColor           : 'rgba(210, 214, 222, 1)',
+            strokeColor         : 'rgba(210, 214, 222, 1)',
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: produktif
           },
           {
-            label: "Non Produktif",
-            fillColor: "rgba(110, 014, 222, 1)",
-            strokeColor: "rgba(110, 014, 222, 1)",
-            pointColor: "rgba(110, 014, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: nonproduktif
+          label: "Non Produktif",
+          fillColor           : 'rgba(60,141,188,0.9)',
+          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data: nonproduktif
           }
         ]
       };
@@ -716,7 +717,6 @@ $.ajax({
       method: "GET",
       success: function(data) {
       console.log(data);
-      
       var name = [];
       var presentase = [];
       for (var i = 0; i < data.data.length; i++) {
