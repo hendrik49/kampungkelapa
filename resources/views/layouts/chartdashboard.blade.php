@@ -29,21 +29,20 @@
         datasets: [
           {
             label: "Produktif",
-            fillColor           : 'rgba(210, 214, 222, 1)',
-            strokeColor         : 'rgba(210, 214, 222, 1)',
-            pointColor          : 'rgba(210, 214, 222, 1)',
-            pointStrokeColor    : '#c1c7d1',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,1)',
+            fillColor: "rgba(34,139,34,1)",
+            strokeColor: "rgba(34,139,34,1)",
+            pointColor: "rgba(34,139,34,1)",
+            pointStrokeColor: "#c1c7d1",
+            pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: produktif
           },
           {
           label: "Non Produktif",
-          fillColor           : 'rgba(60,141,188,0.9)',
-          strokeColor         : 'rgba(60,141,188,0.8)',
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
+          fillColor           : 'rgba(255,140,0,0.9)',
+          strokeColor         : 'rgba(255,140,0,0.8)',
+          pointColor          : 'rgba(255,140,0,1)',
+          pointStrokeColor    : 'rgba(255,140,0,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
           data: nonproduktif
@@ -176,29 +175,30 @@
         datasets: [
           {
             label: "Buah",
-            fillColor: "rgba(110, 214, 222, 1)",
-            strokeColor: "rgba(110, 214, 222, 1)",
-            pointColor: "rgba(110, 214, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            fillColor           : 'rgba(60,141,188,0.9)',
+            strokeColor         : 'rgba(60,141,188,0.8)',
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
             data: buah
           },
           {
             label: "Nira",
-            fillColor: "rgba(110, 014, 222, 1)",
-            strokeColor: "rgba(110, 014, 222, 1)",
-            pointColor: "rgba(110, 014, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
+            fillColor           : 'rgba(210, 214, 222, 1)',
+            strokeColor         : 'rgba(210, 214, 222, 1)',
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: nira
           },
           {
             label: "Bibit",
-            fillColor: "rgba(310, 014, 222, 1)",
-            strokeColor: "rgba(210, 014, 222, 1)",
-            pointColor: "rgba(210, 014, 222, 1)",
+            fillColor: "rgba(34,139,34,1)",
+            strokeColor: "rgba(34,139,34,1)",
+            pointColor: "rgba(34,139,34,1)",
             pointStrokeColor: "#c1c7d1",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
@@ -245,7 +245,7 @@ $.ajax({
       for (var i = 0; i < data.data.length; i++) {
         donutData.push({
             data: data.data[i].count,
-            color: "#f56954",
+            color: "#DC143C",
             label: data.data[i].name
       });
       }
@@ -728,9 +728,9 @@ $.ajax({
         datasets: [
           {
             label: "Persentase",
-            fillColor: "rgba(110, 214, 222, 1)",
-            strokeColor: "rgba(110, 214, 222, 1)",
-            pointColor: "rgba(110, 214, 222, 1)",
+            fillColor: "rgba(25,25,112, 1)",
+            strokeColor: "rgba(25,25,112, 1)",
+            pointColor: "rgba(25,25,112, 1)",
             pointStrokeColor: "#c1c7d1",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
