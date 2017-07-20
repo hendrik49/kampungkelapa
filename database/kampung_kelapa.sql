@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 19, 2017 at 05:30 PM
+-- Generation Time: Jul 20, 2017 at 12:50 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -90418,7 +90418,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Hendrik', 'didok@gmail.com', '$2y$10$SCqn4bN4y3sUB6JQBh8mdO30/AZdj8ygRzs7sOZmrzQfIsv/Fgdni', '3dk7z1uB9mxR3aZrmV4npHvYKoIiLsZNcgGdZTVkgIoyTrrf5qqUESoLO06z', '2017-07-18 01:31:51', '2017-07-18 02:01:00');
+(2, 'Hendrik', 'didok@gmail.com', '$2y$10$SCqn4bN4y3sUB6JQBh8mdO30/AZdj8ygRzs7sOZmrzQfIsv/Fgdni', 'bEjnt0007A7jhStxFVMQKBJojuq4SDB0fDCPZ6i3f2XgiSh8pVYEH9gVWmyG', '2017-07-18 01:31:51', '2017-07-19 08:50:17');
 
 -- --------------------------------------------------------
 
@@ -90793,9 +90793,9 @@ CREATE TABLE `user_rating` (
 --
 CREATE TABLE `view_commodity_for` (
 `name` varchar(100)
-,`bibit` bigint(21)
-,`nira` bigint(21)
-,`buah` bigint(21)
+,`bibit` decimal(32,0)
+,`nira` decimal(32,0)
+,`buah` decimal(32,0)
 );
 
 -- --------------------------------------------------------
@@ -90839,7 +90839,7 @@ CREATE TABLE `view_persentase_location` (
 --
 CREATE TABLE `view_pie_commodity` (
 `name` varchar(100)
-,`count` bigint(21)
+,`count` decimal(32,0)
 );
 
 -- --------------------------------------------------------
@@ -90849,8 +90849,8 @@ CREATE TABLE `view_pie_commodity` (
 --
 CREATE TABLE `view_produktif_noproduktif` (
 `name` varchar(100)
-,`produktif` bigint(21)
-,`nonproduktif` bigint(21)
+,`produktif` decimal(32,0)
+,`nonproduktif` decimal(32,0)
 );
 
 -- --------------------------------------------------------
@@ -90860,7 +90860,7 @@ CREATE TABLE `view_produktif_noproduktif` (
 --
 DROP TABLE IF EXISTS `view_commodity_for`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_commodity_for`  AS  select `ref_district`.`name` AS `name`,count((case when (`user_commodity`.`commodity_for` = 'bibit') then 1 end)) AS `bibit`,count((case when (`user_commodity`.`commodity_for` = 'nira') then 1 end)) AS `nira`,count((case when (`user_commodity`.`commodity_for` = 'buah') then 1 end)) AS `buah` from ((`user_commodity` join `user_detail` on((`user_detail`.`user_id` = `user_commodity`.`user_id`))) join `ref_district` on((`ref_district`.`id` = `user_detail`.`district`))) group by `user_detail`.`district`,`user_commodity`.`commodity_for` order by `user_detail`.`district` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_commodity_for`  AS  select `ref_district`.`name` AS `name`,sum((case when (`user_commodity`.`commodity_for` = 'bibit') then `user_commodity_detail`.`count` end)) AS `bibit`,sum((case when (`user_commodity`.`commodity_for` = 'nira') then `user_commodity_detail`.`count` end)) AS `nira`,sum((case when (`user_commodity`.`commodity_for` = 'buah') then `user_commodity_detail`.`count` end)) AS `buah` from (((`user_commodity_detail` join `user_commodity` on((`user_commodity_detail`.`user_commodity_id` = `user_commodity`.`id`))) join `user_detail` on((`user_detail`.`user_id` = `user_commodity`.`user_id`))) join `ref_district` on((`ref_district`.`id` = `user_detail`.`district`))) group by `user_detail`.`district`,`user_commodity`.`commodity_for` order by `user_detail`.`district` ;
 
 -- --------------------------------------------------------
 
@@ -90896,7 +90896,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_pie_commodity`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_pie_commodity`  AS  select `ref_district`.`name` AS `name`,count(`user_commodity_detail`.`commodity_age`) AS `count` from (((`user_commodity_detail` join `user_commodity` on((`user_commodity_detail`.`user_commodity_id` = `user_commodity`.`id`))) join `user_detail` on((`user_detail`.`user_id` = `user_commodity`.`user_id`))) join `ref_district` on((`ref_district`.`id` = `user_detail`.`district`))) group by `user_detail`.`district` order by `user_detail`.`district` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_pie_commodity`  AS  select `ref_district`.`name` AS `name`,sum(`user_commodity_detail`.`count`) AS `count` from (((`user_commodity_detail` join `user_commodity` on((`user_commodity_detail`.`user_commodity_id` = `user_commodity`.`id`))) join `user_detail` on((`user_detail`.`user_id` = `user_commodity`.`user_id`))) join `ref_district` on((`ref_district`.`id` = `user_detail`.`district`))) group by `user_detail`.`district` order by `user_detail`.`district` ;
 
 -- --------------------------------------------------------
 
@@ -90905,7 +90905,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_produktif_noproduktif`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_produktif_noproduktif`  AS  select `ref_district`.`name` AS `name`,count((case when ((`user_commodity_detail`.`commodity_age` = 2) or (`user_commodity_detail`.`commodity_age` = 3)) then 1 end)) AS `produktif`,count((case when (`user_commodity_detail`.`commodity_age` = 4) then 1 end)) AS `nonproduktif` from (((`user_commodity_detail` join `user_commodity` on((`user_commodity_detail`.`user_commodity_id` = `user_commodity`.`id`))) join `user_detail` on((`user_detail`.`user_id` = `user_commodity`.`user_id`))) join `ref_district` on((`ref_district`.`id` = `user_detail`.`district`))) group by `user_detail`.`district` order by `user_detail`.`district` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_produktif_noproduktif`  AS  select `ref_district`.`name` AS `name`,sum((case when ((`user_commodity_detail`.`commodity_age` = 2) or (`user_commodity_detail`.`commodity_age` = 3)) then `user_commodity_detail`.`count` end)) AS `produktif`,sum((case when (`user_commodity_detail`.`commodity_age` = 4) then `user_commodity_detail`.`count` end)) AS `nonproduktif` from (((`user_commodity_detail` join `user_commodity` on((`user_commodity_detail`.`user_commodity_id` = `user_commodity`.`id`))) join `user_detail` on((`user_detail`.`user_id` = `user_commodity`.`user_id`))) join `ref_district` on((`ref_district`.`id` = `user_detail`.`district`))) group by `user_detail`.`district` order by `user_detail`.`district` ;
 
 --
 -- Indexes for dumped tables
