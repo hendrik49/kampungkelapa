@@ -9,6 +9,7 @@
 <!-- Page script -->
 <script>
   $(function () {
+    /*
     var barChartCanvas = $("#line-chart").get(0).getContext("2d");
     var barChartYesNo = new Chart(barChartCanvas);
      $.ajax({
@@ -78,7 +79,88 @@
       };
       barChartYesNo.Bar(barChartData, barChartOptions);
       }
-     });    
+    });*/
+    $.get("{{ url('/getProduktifYesNo') }}", function(data, status){
+
+            var triwulan = [];
+            var produktif = [];
+            var nonproduktif = [];
+            for (var i = 0; i < data.data.length; i++) {
+              produktif.push(data.data[i].produktif);
+              nonproduktif.push(data.data[i].nonproduktif);
+              triwulan.push(data.data[i].name);
+            }
+
+            console.log(nonproduktif);
+            new Chart(document.getElementById("line-chart"), {
+            type: 'bar',
+            data: {
+              labels: triwulan,
+              datasets: [
+                {
+                  label: "Produktif",
+                  backgroundColor: "#d41243",
+                  data: produktif
+                },
+                {
+                  label: "Non Produktif",
+                  backgroundColor: "#8ec127",
+                  data: nonproduktif
+                }
+              ]
+            },
+            options: {
+              legend: { display: false },
+              // title: {
+              //   display: true,
+              //   text: 'Predicted world population (millions) in 2050'
+              // },
+              tooltips: {
+                    mode: 'index',
+                    intersect: true
+              },
+              responsive: true,
+              maintainAspectRatio: true,
+              categoryPercentage: 1.0,
+              barPercentage: .5,
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                          stepSize: 0.5
+                      },
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Jumlah (juta)'
+                      },
+                      margins: {
+        left: 5,
+        right: 0,
+        top: 0,
+        bottom: 0,
+    },
+                  }],
+                  xAxes: [{
+                      ticks: {
+                        maxRotation: 89 // angle in degrees
+                      },
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Kecamatan'
+                      }
+                  }]
+              }
+              // scales: {
+              //   xAxes: [{
+              //     ticks: {
+              //       maxRotation: 180 // angle in degrees
+              //     }
+              //   }]
+              // }
+            }
+            });
+    });
+
 /*
   $.ajax({
       url: "{{ url('/getProduktifYesNo') }}",
@@ -235,7 +317,7 @@
       };
       barChart.Bar(barChartData, barChartOptions);
       }
-     });    
+     });
 $.ajax({
       url: "{{ url('/getDonutCommodity') }}",
       method: "GET",
@@ -284,7 +366,7 @@ $.ajax({
             + label
             + "<br>"
             + Math.round(series.percent) + "%</div>";
-      }      
+      }
       }
    });
 /*
@@ -767,7 +849,7 @@ $.ajax({
       };
       bar2Chart.Bar(bar2ChartData, bar2ChartOptions);
       }
-     });    
+     });
 /*
   var pieChartCanvasperjenis = $("#donut-perjenis").get(0).getContext("2d");
   var pieChartperjenis = new Chart(pieChartCanvasperjenis);
