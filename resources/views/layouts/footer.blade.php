@@ -51,7 +51,8 @@
 <!-- Select2 -->
 <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
 <!-- ChartJS 1.0.1 -->
-<script src="{{ asset('assets/plugins/chartjs/Chart.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<!-- <script src="{{ asset('assets/plugins/chartjs/Chart.min.js') }}"></script> -->
 <!-- DataTables -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
@@ -67,8 +68,8 @@
     $('.money').mask('000,000,000,000,000,000,000,000,000,000', {reverse: true});
     $('.money2').mask("#.##0,00", {reverse: true});
     $(".date-picker").datepicker({ dateFormat: 'mm/dd/yyyy' });
-    //$(".date-picker").datepicker('setDate', new Date());    
-    
+    //$(".date-picker").datepicker('setDate', new Date());
+
     //Datemask dd/mm/yyyy
   });
 </script>

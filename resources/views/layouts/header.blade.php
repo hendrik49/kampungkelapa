@@ -66,12 +66,12 @@
     -->
     <nav class="navbar navbar-static-top navbarbg">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <!-- <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </a>
+      </a> -->
       <div class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
@@ -89,7 +89,7 @@
               <li class="user-header">
                 <img src="{{ asset('assets/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
                 <p>
-                  {{ Auth::user()->name }} 
+                  {{ Auth::user()->name }}
                   <small>Anggota sejak {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
@@ -104,12 +104,12 @@
       </div>
     </nav>
   </header>
-  <aside class="main-sidebar">
+  <!-- <aside class="main-sidebar">
     <!--
 
     <section class="sidebar">
       <!Sidebar user panel -->
-      <!-- 
+      <!--
       <div class="user-panel">
         <div class="pull-left image">
           <img src="{{ asset('assets/dist/img/user2-160x160.png') }}" class="img-circle" alt="User Image">
@@ -146,17 +146,17 @@
           </a>
         </li>
         @endif
-        <li class="treeview @if(Request::is('progres_pjbs') || 
-                                Request::is('status_pengisian*')|| 
-                                Request::is('pjb_setahun')|| 
-                                Request::is('*_pjbs') || 
-                                Request::is('*_pjbs/*') || 
-                                Request::is('*_pradipas') || 
+        <li class="treeview @if(Request::is('progres_pjbs') ||
+                                Request::is('status_pengisian*')||
+                                Request::is('pjb_setahun')||
+                                Request::is('*_pjbs') ||
+                                Request::is('*_pjbs/*') ||
+                                Request::is('*_pradipas') ||
                                 Request::is('*_pradipas/*') ||
-                                (Request::is('*_spp') && !Request::is('report_*')) || 
+                                (Request::is('*_spp') && !Request::is('report_*')) ||
                                 (Request::is('*_spp/*') && !Request::is('report_*'))
                                 )
-                                active 
+                                active
                             @endif">
           <a href="#">
             <i class="fa fa-home"></i> <span>DIPA</span>
@@ -176,7 +176,7 @@
         </li>
         @if(Auth::user()->role=="M")
         <li class="treeview @if(Request::is('report_*'))
-                                active 
+                                active
                             @endif">
           <a href="#">
             <i class="fa fa-files-o"></i> <span>Laporan</span>
@@ -188,9 +188,9 @@
             <li><a href="{{ url('/report') }}"><i class="fa fa-fw"></i>Laporan Anggaran</a></li>
             <li><a href="{{ url('/report_kop_spp') }}"><i class="fa fa-fw"></i>Laporan Kop & SPP</a></li>
           </ul>
-        </li>        
-        @endif        
+        </li>
+        @endif
       </ul>
     </section>
   -->
-  </aside>
+  <!-- </aside> -->
