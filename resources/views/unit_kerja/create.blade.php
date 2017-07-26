@@ -12,7 +12,6 @@
     @include('error')
     <div class="row">
         <div class="col-md-12">
-
             <form action="{{ route('unit_kerja.store') }}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group @if($errors->has('id')) has-error @endif">
@@ -29,6 +28,29 @@
                        @if($errors->has("email"))
                         <span class="help-block">{{ $errors->first("email") }}</span>
                        @endif
+                    </div>
+                    <div class="form-group @if($errors->has('role')) has-error @endif">
+                       <label for="triwulan-field">Role</label>
+                        <select class="form-control" id="role-field" name="role">                    
+                            <option value="">Pilih Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="superadmin">Super Admin</option>
+                            <option value="gov">Government</option>
+                        </select>                       
+                       @if($errors->has("role"))
+                        <span class="help-block">{{ $errors->first("role") }}</span>
+                       @endif
+                    </div>
+                    <div class="form-group @if($errors->has('status')) has-error @endif">
+                    <div class="checkbox">
+                        <label>
+                        <input type="checkbox" name="status">
+                            Status
+                        </label>
+                    @if($errors->has("status"))
+                    <span class="help-block">{{ $errors->first("status") }}</span>
+                    @endif
+                    </div>
                     </div>
                     <div class="form-group @if($errors->has('password')) has-error @endif">
                        <label for="view-field">Password</label>

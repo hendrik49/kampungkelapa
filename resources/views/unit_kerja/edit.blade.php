@@ -30,6 +30,30 @@
                         <span class="help-block">{{ $errors->first("email") }}</span>
                        @endif
                     </div>
+                    <div class="form-group @if($errors->has('role')) has-error @endif">
+                       <label for="triwulan-field">Role</label>
+                        <select class="form-control" id="role-field" name="role">                    
+                            <option value="">Pilih Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="superadmin">Super Admin</option>
+                            <option value="gov">Government</option>
+                        </select>                       
+                       @if($errors->has("role"))
+                        <span class="help-block">{{ $errors->first("role") }}</span>
+                       @endif
+                    </div>
+                    <div class="form-group @if($errors->has('status')) has-error @endif">
+                    <div class="checkbox">
+                        <label>
+                        <input type="checkbox" value="1" name="status" @if($user->status==1) checked="checked" @endif>
+                            Status
+                        </label>
+                    @if($errors->has("status"))
+                    <span class="help-block">{{ $errors->first("status") }}</span>
+                    @endif
+                    </div>
+                    </div>
+
                     <div class="form-group @if($errors->has('password')) has-error @endif">
                        <label for="password-field">Password</label>
                     <input type="password" id="password-field" name="password" class="form-control" value=""/>

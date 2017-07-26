@@ -66,7 +66,7 @@ class DashboardController extends Controller
     public function getDonutCommodity()
     {
         $user = Auth::user(); 
-        $data = DB::table('view_pie_commodity')->select('*')->get();
+        $data = DB::table('view_pie_commodity')->select('*')->OrderBy('count','desc')->skip(0)->take(6)->get();
         return  compact('data');
     }
 

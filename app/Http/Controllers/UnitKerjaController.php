@@ -46,6 +46,7 @@ class UnitKerjaController extends Controller {
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required',
             'copassword' => 'required',
         ]);
@@ -54,28 +55,23 @@ class UnitKerjaController extends Controller {
         $user->id = $request->input("id");
         $user->name = $request->input("name");
         $user->email = $request->input("email");
+        $user->role = $request->input("role");
         $user->password = bcrypt($request->input("password"));
-        $user->role = "K";
+        $user->status = $request->input("status");
 
         $salt = bin2hex(openssl_random_pseudo_bytes(16));
         $randomkey = bin2hex(openssl_random_pseudo_bytes(32));
 
-        $master_hash = session()->get('pass_sha256');
-        $user_hash = hash("sha256", $request->input("password"));
-
-        $user->salt = $salt;
-        $user->key_m = openssl_encrypt($randomkey, config('crypto.cipher_method'), hex2bin($master_hash), 0, hex2bin($salt));
-        $user->key_u = openssl_encrypt($randomkey, config('crypto.cipher_method'), hex2bin($user_hash), 0, hex2bin($salt));
-
         $user->save();
 
-        return redirect()->route('unit_kerja.index')->with('message', 'Simpan Berhasil.');
+        return redirect()->route('unit_kerja.index')->with('message', 'Menyimpan pengguna '.$user->name.' Berhasil.');
     }
 
     public function update(Request $request, $id) {
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required',
             'copassword' => 'required',
         ]);
@@ -84,18 +80,12 @@ class UnitKerjaController extends Controller {
         $user->name = $request->input("name");
         $user->email = $request->input("email");
         $user->password = bcrypt($request->input("password"));
-        $user->role = "K";
-
-        // calculate original key via key_m
-        $orig_key = openssl_decrypt($user->key_m, config('crypto.cipher_method'), hex2bin(session()->get('pass_sha256')), 0, hex2bin($user->salt));
-        // reencrypt key_u using new password
-        $user_hash = hash("sha256", $request->input("password"));
-        $user->key_u = openssl_encrypt($orig_key, config('crypto.cipher_method'), hex2bin($user_hash), 0, hex2bin($user->salt));
-        // salt unchanged
+        $user->role = $request->input("role");
+        $user->status = $request->input("status");
 
         $user->save();
 
-        return redirect()->route('unit_kerja.index')->with('message', 'Memperbaharui berhasil.');
+        return redirect()->route('unit_kerja.index')->with('message', 'Memperbaharui pengguna '.$user->name.' berhasil.');
     }
 
     /**

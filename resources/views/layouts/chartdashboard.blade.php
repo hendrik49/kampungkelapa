@@ -9,6 +9,7 @@
 <!-- Page script -->
 <script>
   $(function () {
+    /*
     var barChartCanvas = $("#line-chart").get(0).getContext("2d");
     var barChartYesNo = new Chart(barChartCanvas);
      $.ajax({
@@ -78,7 +79,81 @@
       };
       barChartYesNo.Bar(barChartData, barChartOptions);
       }
-     });    
+    });*/
+    $.get("{{ url('/getProduktifYesNo') }}", function(data, status){
+
+               var triwulan = [];
+               var produktif = [];
+               var nonproduktif = [];
+               for (var i = 0; i < data.data.length; i++) {
+                 produktif.push(data.data[i].produktif);
+                 nonproduktif.push(data.data[i].nonproduktif);
+                 triwulan.push(data.data[i].name);
+               }
+
+              //  console.log(nonproduktif);
+               new Chart(document.getElementById("line-chart"), {
+               type: 'bar',
+               data: {
+                 labels: triwulan,
+                 datasets: [
+                   {
+                     label: "Produktif",
+                     backgroundColor: "#d41243",
+                     data: produktif
+                   },
+                   {
+                     label: "Non Produktif",
+                     backgroundColor: "#8ec127",
+                     data: nonproduktif
+                   }
+                 ]
+               },
+               options: {
+                 legend: { display: false },
+                 // title: {
+                 //   display: true,
+                 //   text: 'Predicted world population (millions) in 2050'
+                 // },
+                 tooltips: {
+                       mode: 'index',
+                       intersect: true
+                 },
+                 responsive: true,
+                 maintainAspectRatio: true,
+                 categoryPercentage: 1.0,
+                 barPercentage: .5,
+                 scales: {
+                     yAxes: [{
+                         ticks: {
+                             beginAtZero: true,
+                             stepSize: 10000
+                         },
+                         scaleLabel: {
+                           display: true,
+                           labelString: 'Jumlah Pohon'
+                         }
+                     }],
+                     xAxes: [{
+                         ticks: {
+                           maxRotation: 89 // angle in degrees
+                         },
+                         scaleLabel: {
+                           display: true,
+                           labelString: 'Kecamatan'
+                         }
+                     }]
+                 }
+                 // scales: {
+                 //   xAxes: [{
+                 //     ticks: {
+                 //       maxRotation: 180 // angle in degrees
+                 //     }
+                 //   }]
+                 // }
+               }
+               });
+       });
 /*
   $.ajax({
       url: "{{ url('/getProduktifYesNo') }}",
@@ -153,6 +228,92 @@
     //-------------
     //- BAR CHART -
     //-------------/
+    $.get("{{ url('/getProduktifJenis') }}", function(data, status){
+
+               var buah = [];
+               var nira = [];
+               var bibit = [];
+               var name = [];
+               for (var i = 0; i < data.data.length; i++) {
+                 var a = (data.data[i].buah)?data.data[i].buah:0;
+                 var b = (data.data[i].nira)?data.data[i].nira:0;
+                 var c = (data.data[i].bibit)?data.data[i].bibit:0;
+                 var d = (data.data[i].name)?data.data[i].name:0;
+                 buah.push(a);
+                 nira.push(b);
+                 bibit.push(c);
+                 name.push(d);
+               }
+
+              //  console.log(buah);
+               new Chart(document.getElementById("barChart"), {
+               type: 'bar',
+               data: {
+                 labels: name,
+                 datasets: [
+                   {
+                     label: "Buah",
+                     backgroundColor: "#d41243",
+                     data: buah
+                   },
+                   {
+                     label: "Nira",
+                     backgroundColor: "#8ec127",
+                     data: nira
+                   },
+                   {
+                     label: "Bibit",
+                     backgroundColor: "#ffdb00",
+                     data: bibit
+                   }
+                 ]
+               },
+               options: {
+                 legend: { display: false },
+                 // title: {
+                 //   display: true,
+                 //   text: 'Predicted world population (millions) in 2050'
+                 // },
+                 tooltips: {
+                       mode: 'index',
+                       intersect: true
+                 },
+                 responsive: true,
+                 maintainAspectRatio: true,
+                 categoryPercentage: 1.0,
+                 barPercentage: .5,
+                 scales: {
+                     yAxes: [{
+                         ticks: {
+                             beginAtZero: true,
+                             stepSize: 10000
+                         },
+                         scaleLabel: {
+                           display: true,
+                           labelString: 'Jumlah Pohon'
+                         }
+                     }],
+                     xAxes: [{
+                         ticks: {
+                           maxRotation: 89 // angle in degrees
+                         },
+                         scaleLabel: {
+                           display: true,
+                           labelString: 'Kecamatan'
+                         }
+                     }]
+                 }
+                 // scales: {
+                 //   xAxes: [{
+                 //     ticks: {
+                 //       maxRotation: 180 // angle in degrees
+                 //     }
+                 //   }]
+                 // }
+               }
+               });
+       });
+    /*
     var barChartCanvas = $("#barChart").get(0).getContext("2d");
     var barChart = new Chart(barChartCanvas);
      $.ajax({
@@ -235,17 +396,25 @@
       };
       barChart.Bar(barChartData, barChartOptions);
       }
-     });    
+    });*/
 $.ajax({
       url: "{{ url('/getDonutCommodity') }}",
       method: "GET",
       success: function(data) {
-      console.log(data);
+      //console.log(data);
       var donutData = [];
+      function getRandomColor() {
+          var letters = '0123456789ABCDEF';
+          var color = '#';
+          for (var i = 0; i < 6; i++ ) {
+              color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+      }
       for (var i = 0; i < data.data.length; i++) {
         donutData.push({
             data: data.data[i].count,
-            color: "#DC143C",
+            color: getRandomColor(),
             label: data.data[i].name
       });
       }
@@ -284,7 +453,7 @@ $.ajax({
             + label
             + "<br>"
             + Math.round(series.percent) + "%</div>";
-      }      
+      }
       }
    });
 /*
@@ -710,6 +879,76 @@ $.ajax({
       }
    });
    */
+   $.get("{{ url('/getKinerjaPPL') }}", function(data, status){
+
+              var name = [];
+              var persentase = [];
+              for (var i = 0; i < data.data.length; i++) {
+                var a = (data.data[i].district_loc)?data.data[i].district_loc:0;
+                var b = (data.data[i].persentase_loc)?data.data[i].persentase_loc:0;
+                name.push(a);
+                persentase.push(b);
+              }
+
+              //console.log(data);
+              new Chart(document.getElementById("bar-ppl"), {
+              type: 'bar',
+              data: {
+                labels: name,
+                datasets: [
+                  {
+                    label: "Persentasi",
+                    backgroundColor: "#d41243",
+                    data: persentase
+                  }
+                ]
+              },
+              options: {
+                legend: { display: false },
+                // title: {
+                //   display: true,
+                //   text: 'Predicted world population (millions) in 2050'
+                // },
+                // tooltips: {
+                //       mode: 'index',
+                //       intersect: true
+                // },
+                responsive: true,
+                maintainAspectRatio: true,
+                categoryPercentage: 1.0,
+                barPercentage: .5,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            // stepSize: 10000
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Persen (%)'
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                          maxRotation: 89 // angle in degrees
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Kecamatan'
+                        }
+                    }]
+                }
+                // scales: {
+                //   xAxes: [{
+                //     ticks: {
+                //       maxRotation: 180 // angle in degrees
+                //     }
+                //   }]
+                // }
+              }
+              });
+      });
+   /*
     var bar2ChartCanvas = $("#bar-ppl").get(0).getContext("2d");
     var bar2Chart = new Chart(bar2ChartCanvas);
      $.ajax({
@@ -767,7 +1006,7 @@ $.ajax({
       };
       bar2Chart.Bar(bar2ChartData, bar2ChartOptions);
       }
-     });    
+    });*/
 /*
   var pieChartCanvasperjenis = $("#donut-perjenis").get(0).getContext("2d");
   var pieChartperjenis = new Chart(pieChartCanvasperjenis);

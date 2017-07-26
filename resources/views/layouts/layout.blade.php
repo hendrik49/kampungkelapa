@@ -11,7 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-   
+
     <!-- jvectormap -->
     {!! Html::style('public/assets/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css') !!}
     <!-- Theme style -->
@@ -48,7 +48,8 @@
     <!-- SlimScroll 1.3.0 -->
     {!! Html::script('public/assets/admin/plugins/slimScroll/jquery.slimscroll.min.js') !!}
     <!-- ChartJS 1.0.1 -->
-    {!! Html::script('public/assets/admin/plugins/chartjs/Chart.min.js') !!}
+    <!-- {!! Html::script('public/assets/admin/plugins/chartjs/Chart.min.js') !!} -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <!-- datatables -->
     {!! Html::script('public/assets/admin/plugins/datatables/jquery.dataTables.js') !!}
     {!! Html::script('public/assets/admin/plugins/datatables/dataTables.bootstrap.min.js') !!}
@@ -316,7 +317,7 @@
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-       
+
         @yield('content')
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">

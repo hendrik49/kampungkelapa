@@ -1,7 +1,7 @@
 @extends('layout')
 @section('header')
 <div class="page-header">
-        <h1>MasterDatas / Show #{{$master_datum->id}}</h1>
+        <h1>Pengguna / Show #{{$master_datum->id}}</h1>
         <form action="{{ route('master_datas.destroy', $master_datum->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

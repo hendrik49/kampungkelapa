@@ -3,7 +3,7 @@
 @include('layouts.header')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- 
+    <!--
     <section class="content-header">
       <h1>
         Dasbor
@@ -16,7 +16,7 @@
     </section>
     Content Header (Page header) -->
       <!-- Main content -->
-    <section class="content">                
+    <section class="content">
       <div class="row">
           <div class="col-md-6">
             <!-- Line chart -->
@@ -58,9 +58,9 @@
               </div>
               <!-- /.box-body-->
             </div>
-            
+
             <!-- /.box -->
-         </div>      
+         </div>
           <div class="col-md-6">
             <!-- Line chart -->
             <div class="box box-primary">
@@ -102,7 +102,7 @@
               <!-- /.box-body-->
             </div>
             <!-- /.box -->
-         </div>      
+         </div>
 
       </div>
       </div>
@@ -143,14 +143,13 @@
               </div>
             </div>
             -->
-        </div>      
+        </div>
       </div>
         <!-- /.col -->
     </section>
     <!-- /.content -->
   </div>
-@include('layouts.footer') 
+@include('layouts.footer')
 @include('layouts.chartdashboard')
 </body>
 </html>
-

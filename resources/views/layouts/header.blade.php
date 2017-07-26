@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/dataTables.bootstrap.css') }}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/jquery.dataTables.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/buttons.dataTables.min.css') }}">  
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/jquery.dataTables_themeroller.css') }}">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,7 +56,7 @@
       }
   </style>
 </head>
-<body class="hold-transition sidebar-collapse skin-red-light sidebar-mini">
+<body class="hold-transition skin-red-light sidebar-collapse  sidebar-mini">
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo
@@ -89,7 +90,7 @@
               <li class="user-header">
                 <img src="{{ asset('assets/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
                 <p>
-                  {{ Auth::user()->name }} 
+                  {{ Auth::user()->name }}
                   <small>Anggota sejak {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
@@ -105,11 +106,8 @@
     </nav>
   </header>
   <aside class="main-sidebar">
-    <!--
-
-    <section class="sidebar">
-      <!Sidebar user panel -->
-      <!-- 
+      <section class="sidebar">
+      <!--Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
           <img src="{{ asset('assets/dist/img/user2-160x160.png') }}" class="img-circle" alt="User Image">
@@ -131,66 +129,35 @@
         <li class="header">NAVIGASI UTAMA</li>
         <li class="treeview">
           <a href="{{ url('/dashboard') }}">
-            <i class="fa fa-dashboard"></i> <span>Dasbor</span>
-          </a>
-        </li>
-        @if(Auth::user()->role=="M")
-        <li class="treeview">
-          <a href="{{ route('unit_kerja.index') }}">
-            <i class="fa fa-user"></i> <span>Pengguna</span>
+            <i class="fa fa-pie-chart"></i> <span>Dasbor</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="{{ route('deadlines.index') }}">
-            <i class="fa fa-calendar"></i> <span>Tenggat Waktu</span>
-          </a>
-        </li>
-        @endif
-        <li class="treeview @if(Request::is('progres_pjbs') || 
-                                Request::is('status_pengisian*')|| 
-                                Request::is('pjb_setahun')|| 
-                                Request::is('*_pjbs') || 
-                                Request::is('*_pjbs/*') || 
-                                Request::is('*_pradipas') || 
-                                Request::is('*_pradipas/*') ||
-                                (Request::is('*_spp') && !Request::is('report_*')) || 
-                                (Request::is('*_spp/*') && !Request::is('report_*'))
-                                )
-                                active 
-                            @endif">
           <a href="#">
-            <i class="fa fa-home"></i> <span>DIPA</span>
+            <i class="fa fa-mouse-pointer"></i> <span>User</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/penyerapan_anggaran_pradipas') }}"><i class="fa fa-fw"></i>Anggaran Pra-DIPA</a></li>
-            <li><a href="{{ url('/penyerapan_anggaran_target_pjbs') }}"><i class="fa fa-fw"></i>Anggaran & Target PBJ</a></li>
-            <li><a href="{{ url('/pjb_setahun') }}"><i class="fa fa-fw"></i>Paket PBJ Setahun</a></li>
-            <li><a href="{{ url('/kop_spp') }}"><i class="fa fa-fw"></i>KOP & SPP</a></li>
-            <li><a href="{{ url('/realisasi_anggaran_target_pjbs') }}"><i class="fa fa-fw"></i>Realisasi Anggaran & PBJ</a></li>
-            <li><a href="{{ url('/progres_pjbs') }}"><i class="fa fa-fw"></i>Progres PBJ</a></li>
-            <li><a href="{{ url('/status_pengisian') }}"><i class="fa fa-fw"></i>Status Pengisian</a></li>
+            <li><a href="{{ route('unit_kerja.index') }}"><i class="fa fa-fw"></i>User Group</a></li>
+            <li><a href="{{ route('unit_area.index') }}"><i class="fa fa-fw"></i> Area Authorize</a></li>
+            <li><a href="{{ url('/') }}"><i class="fa fa-fw"></i> User Location</a></li>
           </ul>
         </li>
-        @if(Auth::user()->role=="M")
-        <li class="treeview @if(Request::is('report_*'))
-                                active 
-                            @endif">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i> <span>Laporan</span>
+            <i class="fa fa-calendar"></i> <span>Laporan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/report') }}"><i class="fa fa-fw"></i>Laporan Anggaran</a></li>
-            <li><a href="{{ url('/report_kop_spp') }}"><i class="fa fa-fw"></i>Laporan Kop & SPP</a></li>
+            <li><a href="{{ url('/jumlahpetani') }}"><i class="fa fa-fw"></i>Jumlah Petani</a></li>
+            <li><a href="{{ url('/jumlahproduk') }}"><i class="fa fa-fw"></i> Jumlah Produk</a></li>
+            <li><a href="{{ url('/') }}"><i class="fa fa-fw"></i> User Location</a></li>
           </ul>
-        </li>        
-        @endif        
+        </li>
       </ul>
     </section>
-  -->
   </aside>

@@ -4,7 +4,7 @@
     <section class="content-header">
     <div class="page-header clearfix">
         <h1>
-            <i class="glyphicon glyphicon-align-justify"></i> Satuan Kerja
+            <i class="glyphicon glyphicon-align-justify"></i> Pengguna
             <a class="btn btn-success pull-right" href="{{ route('unit_kerja.create') }}"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
         </h1>
 
@@ -12,6 +12,13 @@
     </section>
       <!-- Main content -->
     <section class="content">    
+    @include('error')
+    @if(Session::has('message2'))
+       <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('message2') }}</p>
+    @elseif(Session::has('message'))
+       <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif        
+
     <div class="row">
         <div class="col-md-12">
             @if($users->count())
@@ -23,6 +30,7 @@
                         <th>EMAIL</th>
                         <th>TANGGAL</th>
                         <th>LEVEL</th>
+                        <th>STATUS</th>
                         <th class="text-right">Aksi</th>
                         </tr>
                     </thead>
@@ -34,7 +42,8 @@
                     <td>{{$master_datum->name}}</td>
                     <td>{{$master_datum->email}}</td>
                     <td>{{$master_datum->created_at}}</td>
-                    <td>@if($master_datum->role == 'M') Master @else User @endif</td>
+                    <td>@if($master_datum->role == 'admin') Admin @elseif($master_datum->role == 'superadmin') Super Admin @else Government @endif</td>
+                    <td>@if($master_datum->status == 1) Aktif @else Non Aktif @endif</td>
                     <td class="text-right">
                         @if($master_datum->role!='M')
                             <a class="btn btn-xs btn-warning" href="{{ route('unit_kerja.edit', $master_datum->id) }}"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
