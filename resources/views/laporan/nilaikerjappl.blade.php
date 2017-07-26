@@ -4,7 +4,7 @@
     <section class="content-header">
     <div class="page-header clearfix">
         <h1>
-            <i class="glyphicon glyphicon-align-justify"></i> JUMLAH PRODUK
+            <i class="glyphicon glyphicon-align-justify"></i> Nilai Kinerja PPL
         </h1>
 
     </div>
@@ -19,22 +19,22 @@
                     <table class="table table-condensed table-striped">
                         <thead>
                         <tr>
-                            <th width="90%">KECAMATAN</th>
-                            <th width="10%">JUMLAH</th>
+                            <th algin="left" width="70%">KECAMATAN</th>
+                            <th width="10%">PRESENTASE (%)</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th width="90%">KECAMATAN</th>
-                            <th width="10%">JUMLAH</th>
+                            <th algin="left" width="70%">KECAMATAN</th>
+                            <th width="10%">PRESENTASE (%)</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
                             @foreach($data as $master_datum)
                         <tr>
-                        <td width="90%">{{$master_datum->name}}</td>
-                        <td align="right" width="10%">{{$master_datum->count}}</td>
+                        <td algin="left" width="70%">{{$master_datum->district_loc}}</td>
+                        <td align="right" width="30%">{{$master_datum->persentase_loc}}</td>
                         </tr>
                     @endforeach
                         </tbody>

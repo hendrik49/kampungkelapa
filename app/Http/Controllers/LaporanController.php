@@ -48,5 +48,30 @@ class LaporanController extends Controller {
         return view('laporan.index_produk', compact('data'));
     }
 
+    public function jmlhphnprodannonpro(){
+        $data = DB::table('view_produktif_noproduktif')->select('*')->get();
+        return view('laporan.jmlhphnprodannonpro', compact('data'));
+
+    }
+
+    public function jumlahperuntukan(){
+        $data = DB::table('view_commodity_for')->select('*')->get();
+        return view('laporan.jumlahperuntukan', compact('data'));
+    }
+
+    public function nilaikerjappl(){
+        $data = DB::table('view_persentase_location')->select('*')->get();
+        return view('laporan.nilaikerjappl', compact('data'));
+    }
+
+    public function datamemberdanphnppl(){
+
+    }
+    
+    public function trackppl(){
+        
+    }
+
+
 
 }

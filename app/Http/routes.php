@@ -33,6 +33,11 @@ Route::group(['middleware' => 'auth'], function(){
     //pusat
     Route::get("/jumlahpetani","LaporanController@jumlahpetani");
     Route::get("/jumlahproduk","LaporanController@jumlahproduk");
+    Route::get("/jmlhphnprodannonpro","LaporanController@jmlhphnprodannonpro");
+    Route::get("/jumlahperuntukan","LaporanController@jumlahperuntukan");
+    Route::get("/nilaikerjappl","LaporanController@nilaikerjappl");
+    Route::get("/datamemberdanphnppl","LaporanController@datamemberdanphnppl");
+    Route::get("/trackppl","LaporanController@trackppl");
 
         
     Route::get('/', function () {

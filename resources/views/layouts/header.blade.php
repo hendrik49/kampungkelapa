@@ -67,12 +67,12 @@
     -->
     <nav class="navbar navbar-static-top navbarbg">
       <!-- Sidebar toggle button-->
-      <!-- <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </a> -->
+      </a>
       <div class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
@@ -105,21 +105,12 @@
       </div>
     </nav>
   </header>
-<<<<<<< HEAD
   <aside class="main-sidebar">
       <section class="sidebar">
       <!--Sidebar user panel -->
-=======
-  <!-- <aside class="main-sidebar">
-    <!--
-
-    <section class="sidebar">
-      <!Sidebar user panel -->
-      <!--
->>>>>>> ec9b06678711e7c9c1f14c8d0d1b9a90299da9f3
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ asset('assets/dist/img/user2-160x160.png') }}" class="img-circle" alt="User Image">
+          <img src="{{ asset('assets/logo.png') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -142,51 +133,19 @@
           </a>
         </li>
         <li class="treeview">
-<<<<<<< HEAD
-=======
-          <a href="{{ route('unit_kerja.index') }}">
-            <i class="fa fa-user"></i> <span>Pengguna</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{ route('deadlines.index') }}">
-            <i class="fa fa-calendar"></i> <span>Tenggat Waktu</span>
-          </a>
-        </li>
-        @endif
-        <li class="treeview @if(Request::is('progres_pjbs') ||
-                                Request::is('status_pengisian*')||
-                                Request::is('pjb_setahun')||
-                                Request::is('*_pjbs') ||
-                                Request::is('*_pjbs/*') ||
-                                Request::is('*_pradipas') ||
-                                Request::is('*_pradipas/*') ||
-                                (Request::is('*_spp') && !Request::is('report_*')) ||
-                                (Request::is('*_spp/*') && !Request::is('report_*'))
-                                )
-                                active
-                            @endif">
->>>>>>> ec9b06678711e7c9c1f14c8d0d1b9a90299da9f3
           <a href="#">
-            <i class="fa fa-mouse-pointer"></i> <span>User</span>
+            <i class="fa fa-user"></i> <span>User</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('unit_kerja.index') }}"><i class="fa fa-fw"></i>User Group</a></li>
-            <li><a href="{{ route('unit_area.index') }}"><i class="fa fa-fw"></i> Area Authorize</a></li>
-            <li><a href="{{ url('/') }}"><i class="fa fa-fw"></i> User Location</a></li>
+            <li><a href="{{ route('unit_area.index') }}"><i class="fa fa-fw"></i>Area Authorize</a></li>
+            <li><a href="{{ url('/') }}"><i class="fa fa-fw"></i> </a></li>
           </ul>
         </li>
-<<<<<<< HEAD
         <li class="treeview">
-=======
-        @if(Auth::user()->role=="M")
-        <li class="treeview @if(Request::is('report_*'))
-                                active
-                            @endif">
->>>>>>> ec9b06678711e7c9c1f14c8d0d1b9a90299da9f3
           <a href="#">
             <i class="fa fa-calendar"></i> <span>Laporan</span>
             <span class="pull-right-container">
@@ -194,19 +153,15 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{ url('/jmlhphnprodannonpro') }}"><i class="fa fa-fw"></i>Jumlah Pohon Kelapa Produktif dan Non Produktif</a></li>
+            <li><a href="{{ url('/jumlahperuntukan') }}"><i class="fa fa-fw"></i>Jumlah Peruntukan Kelapa - Buah, Nira, Bibit</a></li>
             <li><a href="{{ url('/jumlahpetani') }}"><i class="fa fa-fw"></i>Jumlah Petani</a></li>
-            <li><a href="{{ url('/jumlahproduk') }}"><i class="fa fa-fw"></i> Jumlah Produk</a></li>
-            <li><a href="{{ url('/') }}"><i class="fa fa-fw"></i> User Location</a></li>
+            <li><a href="{{ url('/jumlahproduk') }}"><i class="fa fa-fw"></i>Jumlah Pohon</a></li>
+            <li><a href="{{ url('/nilaikerjappl') }}"><i class="fa fa-fw"></i>Nilai Kinerja PPL</a></li>
+            <li><a href="{{ url('/datamemberdanphnppl') }}"><i class="fa fa-fw"></i>Data Member dan Pohon PPL </a></li>
+            <li><a href="{{ url('/trackppl') }}"><i class="fa fa-fw"></i>Track PPL</a></li>
           </ul>
         </li>
-<<<<<<< HEAD
       </ul>
     </section>
   </aside>
-=======
-        @endif
-      </ul>
-    </section>
-  -->
-  <!-- </aside> -->
->>>>>>> ec9b06678711e7c9c1f14c8d0d1b9a90299da9f3

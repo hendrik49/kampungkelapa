@@ -425,7 +425,7 @@ $.ajax({
           radius: 1,
           innerRadius: 0.5,
           label: {
-            //show: true,
+            show: true,
             radius: 2 / 3,
             formatter: labelFormatter,
             threshold: 0.1
@@ -439,14 +439,14 @@ $.ajax({
         hoverable: true
       },
       tooltip: true,
-      /*tooltipOpts: {
+      tooltipOpts: {
           content: "%y.0, %s", // show percentages, rounding to 2 decimal places
           shifts: {
               x: 20,
               y: 0
           },
           defaultTheme: true
-      }*/
+      }
     });
       function labelFormatter(label, series) {
         return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'

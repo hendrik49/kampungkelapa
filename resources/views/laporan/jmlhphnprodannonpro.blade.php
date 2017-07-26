@@ -4,7 +4,7 @@
     <section class="content-header">
     <div class="page-header clearfix">
         <h1>
-            <i class="glyphicon glyphicon-align-justify"></i> JUMLAH PRODUK
+            <i class="glyphicon glyphicon-align-justify"></i> Jumlah Pohon Kelapa Produktif dan Non Produktif per Kecamatan
         </h1>
 
     </div>
@@ -19,22 +19,25 @@
                     <table class="table table-condensed table-striped">
                         <thead>
                         <tr>
-                            <th width="90%">KECAMATAN</th>
-                            <th width="10%">JUMLAH</th>
+                            <th width="80%">KECAMATAN</th>
+                            <th width="10%">PRODUKTIF</th>
+                            <th width="10%">NON PRODUKTIF</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th width="90%">KECAMATAN</th>
-                            <th width="10%">JUMLAH</th>
+                            <th width="80%">KECAMATAN</th>
+                            <th width="10%">PRODUKTIF</th>
+                            <th width="10%">NON PRODUKTIF</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
                             @foreach($data as $master_datum)
                         <tr>
-                        <td width="90%">{{$master_datum->name}}</td>
-                        <td align="right" width="10%">{{$master_datum->count}}</td>
+                        <td width="80%">{{$master_datum->name}}</td>
+                        <td align="right" width="10%">{{$master_datum->produktif}}</td>
+                        <td align="right" width="10%">{{$master_datum->nonproduktif}}</td>
                         </tr>
                     @endforeach
                         </tbody>

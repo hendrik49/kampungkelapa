@@ -70,13 +70,14 @@
                     </div>
                 <div class="well well-sm">
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a class="btn btn-link pull-right" href="{{ route('unit_kerja.index') }}"><i class="glyphicon glyphicon-backward"></i>  Kembali</a>
+                    <a class="btn btn-link pull-right" href="{{ route('unit_kerja.index') }}"><i class="glyphicon glyphicon-backward"></i> Kembali</a>
                 </div>
             </form>
-
         </div>
     </div>
 </section>
+    <!-- /.content -->
+  </div>
 @include('layouts.footer') 
 </body>
 </html>

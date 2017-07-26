@@ -4,7 +4,7 @@
     <section class="content-header">
     <div class="page-header clearfix">
         <h1>
-            <i class="glyphicon glyphicon-align-justify"></i> JUMLAH PRODUK
+            <i class="glyphicon glyphicon-align-justify"></i>Jumlah Peruntukan Kelapa per Kecamatan - Buah, Nira, Bibit
         </h1>
 
     </div>
@@ -19,22 +19,43 @@
                     <table class="table table-condensed table-striped">
                         <thead>
                         <tr>
-                            <th width="90%">KECAMATAN</th>
-                            <th width="10%">JUMLAH</th>
+                            <th width="70%">KECAMATAN</th>
+                            <th width="10%">BIBIT</th>
+                            <th width="10%">NIRA</th>
+                            <th width="10%">BUAH</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th width="90%">KECAMATAN</th>
-                            <th width="10%">JUMLAH</th>
+                            <th width="70%">KECAMATAN</th>
+                            <th width="10%">BIBIT</th>
+                            <th width="10%">NIRA</th>
+                            <th width="10%">BUAH</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
                             @foreach($data as $master_datum)
                         <tr>
-                        <td width="90%">{{$master_datum->name}}</td>
-                        <td align="right" width="10%">{{$master_datum->count}}</td>
+                        <td width="70%">{{$master_datum->name}}</td>
+                        @if($master_datum->bibit!=null)
+                            <td align="right" width="10%">{{$master_datum->bibit}}</td>
+                        @else
+                            <td align="right" width="10%">0</td>
+                        @endif
+                        
+                        @if($master_datum->nira!=null)
+                            <td align="right" width="10%">{{$master_datum->nira}}</td>
+                        @else
+                            <td align="right" width="10%">0</td>
+                        @endif
+
+                        @if($master_datum->buah!=null)
+                            <td align="right" width="10%">{{$master_datum->buah}}</td>
+                        @else
+                            <td align="right" width="10%">0</td>
+                        @endif
+
                         </tr>
                     @endforeach
                         </tbody>
